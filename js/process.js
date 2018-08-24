@@ -54,7 +54,7 @@ window.onload = () => {
 
         mainTitle.innerHTML = name;
         titleSub.innerHTML = mainMessage;
-        logo.src = `${urlImage}${id}/logo`; 
+        logo.src = `${urlImage}${id}/logo`;
     }
 
     function loadData() {
@@ -71,7 +71,7 @@ window.onload = () => {
                 createCss(response.data.data);
                 renderDownload(response.data.data);
 
-                
+
 
                 //carrega o js da template no final, para processar tudo
                 $.getScript("js/rgen.js", function (data, textStatus, jqxhr) {
@@ -85,8 +85,9 @@ window.onload = () => {
 
 }
 
-function renderCarousel(imageIds) {
-    const imageArray = imageIds.map(images => `<div class="item pd-10"><img src="http://dev.mangobits.net:8080/NICLandPagesWs/rs/company/companyImage/${images.id}/logo"/></div>`).join()
+function renderCarousel(imageIds, companyId) {
+    //http://dev.mangobits.net:8080/NICLandPagesWs/rs/company/companyImage/6c844697-4b35-41b4-be3f-cb708fc83494/94837799-53e1-43af-8bde-a3be6e952fb0
+    const imageArray = imageIds.map(images => `<div class="item pd-10"><img src="http://dev.mangobits.net:8080/NICLandPagesWs/rs/company/companyImage/${companyId}?id=${images.id}"/></div>`).join()
 
     return `
         <div class="carousel-widget ctrl-1 popgallery-widget mr-auto" data-items="1" data-nav="true" data-pager="true" data-itemrange="0,1"
@@ -169,8 +170,7 @@ function renderCompanyPar(element) {
 </div>
 <div class="flex-col-md-6">
     <div class="bg-holder img-half r z1" data-rgen-sm="pos-rel px-h400">
-                    ${renderCarousel(element.gallery)}
-
+        ${renderCarousel(element.gallery, element.id)}
     </div>
 </div>`
 }
@@ -179,7 +179,7 @@ function renderCompanyImpar(element) {
     return `<div class="flex-col-md-6">
     <div class="bg-holder img-half r z1" data-rgen-sm="pos-rel px-h400">
         <div bg-holder="bg-img" data-stellar="y" data-stellar-ratio="0.8" data-rgen-sm="h100" class="full-vh bg-cc bg-dark">
-            ${renderCarousel(element.gallery)}
+            ${renderCarousel(element.gallery, element.id)}
         </div>
     </div>
 </div>
