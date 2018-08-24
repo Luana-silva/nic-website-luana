@@ -177,10 +177,9 @@ function renderCompanyPar(element) {
 
 function renderCompanyImpar(element) {
     return `<div class="flex-col-md-6">
+    
     <div class="bg-holder img-half r z1" data-rgen-sm="pos-rel px-h400">
-        <div bg-holder="bg-img" data-stellar="y" data-stellar-ratio="0.8" data-rgen-sm="h100" class="full-vh bg-cc bg-dark">
-            ${renderCarousel(element.gallery, element.id)}
-        </div>
+        ${renderCarousel(element.gallery, element.id)}
     </div>
 </div>
 <div class="flex-col-md-6">
