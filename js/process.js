@@ -86,7 +86,7 @@ window.onload = () => {
 }
 
 function renderCarousel(imageIds) {
-    const imageArray = imageIds.map(id=>`<div class="item pd-10"><img src="http://dev.mangobits.net:8080/NICLandPagesWs/rs/company/companyImage/${id}/logo"/></div>`).join()
+    const imageArray = imageIds.map(images => `<div class="item pd-10"><img src="http://dev.mangobits.net:8080/NICLandPagesWs/rs/company/companyImage/${images.id}/logo"/></div>`).join()
 
     return `
         <div class="carousel-widget ctrl-1 popgallery-widget mr-auto" data-items="1" data-nav="true" data-pager="true" data-itemrange="0,1"
