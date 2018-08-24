@@ -86,6 +86,8 @@ window.onload = () => {
 }
 
 function renderCarousel(imageIds, companyId) {
+    console.log(imageIds);
+    
     //http://dev.mangobits.net:8080/NICLandPagesWs/rs/company/companyImage/6c844697-4b35-41b4-be3f-cb708fc83494/94837799-53e1-43af-8bde-a3be6e952fb0
     const imageArray = imageIds.map(images => `<div class="item pd-10"><img src="http://dev.mangobits.net:8080/NICLandPagesWs/rs/company/companyImage/${companyId}?id=${images.id}"/></div>`).join('')
 
@@ -178,7 +180,7 @@ function renderCompanyPar(element) {
 function renderCompanyImpar(element) {
     return `<div class="flex-col-md-6">
     
-    <div class="bg-holder img-half r z1" data-rgen-sm="pos-rel px-h400">
+    <div class="bg-holder img-half l z1" data-rgen-sm="pos-rel px-h400">
         ${renderCarousel(element.gallery, element.id)}
     </div>
 </div>
